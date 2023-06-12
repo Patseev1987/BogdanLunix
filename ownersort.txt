@@ -1,0 +1,41 @@
+#!/bin/bash
+
+echo "Enter a path"
+read VAR
+
+temp=1
+temp2=6
+temp_name=12
+if [ -d $VAR ]
+then
+cd $VAR
+for i in $(ls -l)
+do
+
+temp=$(( $temp + 1 ))
+
+  if [ $temp -eq $temp2 ]
+  then
+  temp2=$(( $temp2 + 9 ))
+  name_dir=$i
+fi
+
+if [ $temp -eq $temp_name ]
+then
+name=$i
+temp_name=$(( temp_name + 9 ))
+
+ if [ -d $name_dir ]
+    then
+    cp $name ./$name_dir
+    else
+    mkdir $name_dir
+    cp $name ./$name_dir
+    fi
+  fi
+
+done
+echo "Complite"
+else
+echo "Error"
+fi

@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "Enter the path"
+read VAR
+if [ -d $VAR ]
+then
+cd $VAR
+rm *.tmp *.backup *.bak
+else
+echo "EROR!!!"
+fi
